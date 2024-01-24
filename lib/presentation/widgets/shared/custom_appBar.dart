@@ -21,7 +21,7 @@ class CustomAppbar extends StatelessWidget {
                 ),
                 const Text(
                   'Movies',
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20.0,color: Colors.black, fontWeight: FontWeight.bold),
                 ),
                 const Spacer(),
                 IconButton(
