@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:proyecto_m7/config/helpers/human_formats.dart';
 import 'package:proyecto_m7/domain/entities/movie.dart';
 
@@ -93,7 +94,9 @@ class _MoviePoster extends StatelessWidget {
                         child: CircularProgressIndicator(),
                       );
                     } else {
-                      return FadeInRight(child: child);
+                      return GestureDetector(
+                        onTap: () => context.push('/movie/${movie.id}'),
+                        child: FadeInRight(child: child));
                     }
                   },
                 ),
