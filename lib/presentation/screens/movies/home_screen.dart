@@ -11,7 +11,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: _HomeView(),
-    //  bottomNavigationBar: CustomBottomNavigation(),
     );
   }
 }
@@ -35,19 +34,17 @@ class _HomeViewState extends ConsumerState<_HomeView> {
 
   @override
   Widget build(BuildContext context) {
-
     final initialLoading = ref.watch(initialLoadingProvider);
 
     if (initialLoading) {
       return const FullScreenLoader();
     }
-    
+
     final slicePlayingMovies = ref.watch(moviesSlideshowProvider);
     final nowPlayingMovies = ref.watch(nowPlayingMoviesProviders);
     final popularMovies = ref.watch(popularMoviesProviders);
     final upcomingMovies = ref.watch(upcomingMoviesProviders);
     final topRatedMovies = ref.watch(topRatedMoviesProviders);
-
 
     return CustomScrollView(slivers: [
       const SliverAppBar(
