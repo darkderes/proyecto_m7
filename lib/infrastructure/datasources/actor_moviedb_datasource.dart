@@ -5,7 +5,7 @@ import 'package:proyecto_m7/domain/entities/actor.dart';
 import 'package:proyecto_m7/infrastructure/mappers/autors_mapper.dart';
 import 'package:proyecto_m7/infrastructure/models/moviedb/credits_response.dart';
 
-class ActorMovieDbDatasource extends ActorsDataSource {   
+class ActorMovieDbDatasource extends ActorsDataSource {
   final dio = Dio(BaseOptions(
       baseUrl: 'https://api.themoviedb.org/3',
       queryParameters: {
@@ -15,7 +15,8 @@ class ActorMovieDbDatasource extends ActorsDataSource {
   @override
   Future<List<Actor>> getActorsByMovie(String movieId) async {
     final response = await dio.get('/movie/$movieId/credits');
-    if(response.statusCode != 200) throw Exception('Error al obtener los actores');
+    if (response.statusCode != 200)
+      throw Exception('Error al obtener los actores');
     final creditsResponse = CreditsResponse.fromJson(response.data);
 
     List<Actor> actors = creditsResponse.cast
